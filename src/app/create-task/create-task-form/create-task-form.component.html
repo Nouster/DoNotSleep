@@ -1,0 +1,15 @@
+<h2 class="text-capitalize">My task list</h2>
+<form [formGroup]="createTask" (ngSubmit)="addTask()">
+  <input
+    formControlName="newTask"
+    placeholder="Which task do you want to add ?"
+  />
+  <button type="submit">Add my task</button>
+</form>
+<!-- <ul>
+  <li *ngFor="let task of tasks">
+    {{ task.name }}
+    <button (click)="markAsDone(task)">Terminé</button>
+    <button (click)="deleteTask(task)">Supprimer</button>
+  </li>
+</ul>-->
