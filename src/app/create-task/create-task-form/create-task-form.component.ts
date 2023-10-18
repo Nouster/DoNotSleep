@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { task } from 'src/app/interface/task-interface';
 
 @Component({
   selector: 'app-create-task-form',
@@ -7,16 +8,40 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./create-task-form.component.css'],
 })
 export class CreateTaskFormComponent {
-  createTask = this.fb.group({
-    newTask: ['', Validators.required],
-  });
+  createTask: FormGroup;
+  tasks: task[] = [];
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) {
+    this.createTask = this.fb.group({
+      newTask: ['', Validators.required],
+    });
+  }
 
   addTask() {
     if (this.createTask.invalid) {
-      console.error('missing field');
+      console.error('Missing field');
     }
-    console.log('success');
+
+    if (this.createTask.valid) {
+      const newTaskControl = this.createTask.get('newTask');
+
+      if (newTaskControl) {
+        const newTaskName = newTaskControl.value;
+        this.tasks.push({ name: newTaskName, done: false });
+        this.createTask.reset();
+      } else {
+        // Gestion d'erreur ?
+        console.error('object is null');
+      }
+    }
+    console.log('success', this.tasks);
+  }
+
+  markAsDone(task: task) {
+    task.done = true;
+  }
+
+  deleteTask(task: task) {
+    this.tasks = this.tasks.filter((t) => t !== task);
   }
 }
