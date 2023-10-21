@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { CreateTaskModule } from './create-task/create-task.module';
 import { DisplayTaskModule } from './display-task/display-task.module';
+import { TaskManagerModule } from './task-manager/task-manager.module';
 
 @NgModule({
   declarations: [AppComponent, NavigationComponent],
@@ -14,6 +15,7 @@ import { DisplayTaskModule } from './display-task/display-task.module';
     AppRoutingModule,
     CreateTaskModule,
     DisplayTaskModule,
+    TaskManagerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

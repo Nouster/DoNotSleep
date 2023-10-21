@@ -1,4 +1,4 @@
-<h2 class="text-uppercase">Create my new task</h2>
+<h2 class="text-uppercase text-center">Create my new task</h2>
 <form [formGroup]="createTask" (ngSubmit)="addTask()">
   <input
     formControlName="newTask"
@@ -15,3 +15,8 @@
     <button (click)="deleteTask(task)">Delete</button>
   </li>
 </ul>
+
+<div class="mb-3">
+  <label class="form-label d-block">Create task</label>
+  <input type="text" class="form-control-md-6" placeholder="Task name ?" />
+</div>

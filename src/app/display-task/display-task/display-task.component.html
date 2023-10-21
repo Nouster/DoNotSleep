@@ -1,9 +1,14 @@
-<h1 class="pt-5">All tasks !</h1>
+<h1 class="my-5 text-center">All tasks !</h1>
 
-<section class="container mt-5">
-  <div class="row">
-    <div class="col-md-3" *ngFor="let task of tasks">
-      {{ task.name }}
+<section class="container">
+  <div *ngFor="let task of tasks" class="card col-md-4 p-0 me-3">
+    <div class="card-inner">
+      <div class="card-front p-2">
+        <h3 class="fs-5 text-center">{{ task.name }}</h3>
+      </div>
+      <div class="card-back">
+        <span> Status : {{ task.done }}</span>
+      </div>
     </div>
   </div>
 </section>
