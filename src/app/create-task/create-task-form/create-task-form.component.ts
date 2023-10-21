@@ -42,11 +42,11 @@ export class CreateTaskFormComponent implements OnInit {
     }
   }
 
-  markAsDone(task: task) {
-    this.taskService.markTaskAsDone(task);
-  }
+  // markAsDone(task: task) {
+  //   this.taskService.markTaskAsDone(task);
+  // }
 
-  deleteTask(task: task) {
-    this.taskService.deleteTask(task);
-  }
+  // deleteTask(task: task) {
+  //   this.taskService.deleteTask(task);
+  // }
 }

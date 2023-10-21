@@ -14,8 +14,14 @@ export class TaskManagerComponent implements OnInit {
   ngOnInit(): void {
     this.taskService.tasks$.subscribe((tasks) => {
       this.tasks = tasks;
-
-      console.log('tasks :', this.tasks);
     });
+  }
+
+  markAsDone(task: task): void {
+    this.taskService.markTaskAsDone(task);
+  }
+
+  deleteTask(task: task): void {
+    this.taskService.deleteTask(task);
   }
 }
